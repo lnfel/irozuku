@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "Elegant terminal styling for ruby."
   # spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage = "https://lnfel.github.io/irozuku/"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
