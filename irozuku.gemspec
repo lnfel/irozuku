@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["bk2o1.syndicates@gmail.com"]
 
   spec.summary = "Elegant terminal styling for ruby."
-  spec.description = "TODO: Write a longer description or delete this line."
+  # spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = "TODO: Put your gem's website or public repo URL here."
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
