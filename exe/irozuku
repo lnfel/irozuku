@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require "irozuku/cli"
+
+# Following the steps on how to create a gem on bundler.io
+# This executable is used by aruba/cucumber
+# https://bundler.io/guides/creating_gem.html
+#
+# bundle exec exe/irozuku write 'Hello world!'
+Irozuku::CLI.start
