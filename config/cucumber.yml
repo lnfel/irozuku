@@ -1,2 +1,4 @@
 # https://cucumber.io/docs/cucumber/configuration/?sbsearch=yml&lang=ruby
-default: --publish-quiet
+# When using custom features path, we need to explicitly specify the glue path for step_definitions
+# In your Cucumber configuration file: Make sure you're using the --require option to explicitly specify the directory containing your step definitions within your custom path.
+default: --require test/features/step_definitions --publish-quiet --guess test/features
