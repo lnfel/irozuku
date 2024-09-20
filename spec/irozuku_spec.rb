@@ -47,4 +47,9 @@ RSpec.describe Irozuku do
       end
     end
   end
+
+  context "when validating color strings" do
+    it "raises an error for invalid hex color string" do
+    end
+  end
 end
