@@ -50,6 +50,16 @@ module Irozuku
   Constants::TEXT_DECORATION_MAP.each do |key, value|
     generate_text_decoration_method key, value
   end
+
+  def self.color(color_string)
+    if !color_string.start_with?("#")
+      hex_string = get_color(color_string)
+    end
+    color_string = hex_string if hex_string
+    @ansi_color = "\x1b[38;2;#{hex_to_ansi color_string}m"
+    self
+  end
+
   def self.hex_to_ansi(hex_string)
     Validation.hex_color?(hex_string)
     # hex_string = hex_string.sub(/^#?/, "")
@@ -67,6 +77,11 @@ module Irozuku
     end
 
     t.join(";")
+  end
+
+  def self.get_color(name)
+    Validation.valid_color?(name)
+    Constants::HEX_COLOR_MAP[name.downcase]
   end
 
   def self.write(string)

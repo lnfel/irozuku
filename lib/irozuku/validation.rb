@@ -9,6 +9,14 @@ module Irozuku
     end
 
     ##
+    # Validate color name existence
+    def self.valid_color?(color_string)
+      Constants::HEX_COLOR_MAP.fetch(color_string)
+    rescue KeyError
+      raise ValidationError.new("Color #{color_string} is not defined.")
+    end
+
+    ##
     # Validate hex color string
     # #? - Optionally start with a hash symbol
     # (

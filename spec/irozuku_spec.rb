@@ -55,6 +55,8 @@ RSpec.describe Irozuku do
     end
 
     it "raises an error for invalid color name" do
+      invalid_color_name = "something_red"
+      expect { Irozuku.color(invalid_color_name).write("RED") }.to raise_error(Irozuku::Validation::ValidationError, "Color #{invalid_color_name} is not defined.")
     end
   end
 end
