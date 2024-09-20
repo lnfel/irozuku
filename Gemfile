@@ -16,6 +16,10 @@ group :development do
   gem "standard", "~> 1.3"
 end
 
+group :test do
+  gem "simplecov", "~> 0.22", require: false
+end
+
 group :development, :test do
   gem "rspec", "~> 3.0"
   gem "cucumber", "~> 9.2"

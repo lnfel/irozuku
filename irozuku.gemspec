@@ -41,6 +41,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "cucumber", "~> 9.2"
   spec.add_development_dependency "aruba", "~> 2.2"
+  spec.add_development_dependency 'simplecov', "~> 0.22"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
