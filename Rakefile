@@ -10,7 +10,7 @@ RSpec::Core::RakeTask.new(:spec)
 
 # https://cucumber.io/docs/tools/ruby/
 Cucumber::Rake::Task.new(:features) do |t|
-  t.cucumber_opts = "--guess" # Any valid command line option can go here.
+  t.cucumber_opts = "--guess --format pretty" # Any valid command line option can go here.
 end
 
 task default: %i[spec standard features]
