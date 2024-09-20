@@ -1,0 +1,2 @@
+# https://cucumber.io/docs/cucumber/configuration/?sbsearch=yml&lang=ruby
+default: --publish-quiet
