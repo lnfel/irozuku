@@ -25,4 +25,15 @@ RSpec.describe Irozuku do
       end
     end
   end
+
+  context "when using text decorations" do
+    Irozuku::Constants::TEXT_DECORATION_MAP.each do |key, value|
+      it "applies #{Irozuku.public_send(key, key)} to text" do
+        if Irozuku.respond_to?(key)
+          output = Irozuku.public_send(key, key)
+        end
+        expect { print output }.to output(output).to_stdout
+      end
+    end
+  end
 end
