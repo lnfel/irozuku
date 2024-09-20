@@ -3,10 +3,6 @@
 require_relative "irozuku/version"
 
 module Irozuku
-    class Error < StandardError; end
-    # Your code goes here...
-  
-    def self.write(string)
-        string
-    end
+  attr_accessor :ansi_color, :ansi_background_color, :ansi_text_decoration, :text
+  @ansi_text_decoration = []
 end
