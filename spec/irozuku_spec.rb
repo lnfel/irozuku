@@ -36,4 +36,15 @@ RSpec.describe Irozuku do
       end
     end
   end
+
+  context "when using built-in background colors" do
+    Irozuku::Constants::HEX_COLOR_MAP.each do |key, value|
+      it "colors the background #{key} #{Irozuku.public_send(:"bg_#{key}", " ")}" do
+        if Irozuku.respond_to?(:"bg_#{key}")
+          output = Irozuku.public_send(:"bg_#{key}", key)
+        end
+        expect { print output }.to output(output).to_stdout
+      end
+    end
+  end
 end
