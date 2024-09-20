@@ -8,6 +8,14 @@ module Irozuku
   attr_accessor :ansi_color, :ansi_background_color, :ansi_text_decoration, :text
   @ansi_text_decoration = []
 
+  # https://rollbar.com/guides/ruby/how-to-raise-exceptions-in-ruby/
+  # https://www.honeybadger.io/blog/ruby-exception-vs-standarderror-whats-the-difference/
+  class IrozukuError < StandardError
+    def initialize(msg)
+      super
+    end
+  end
+
   def self.generate_text_color_method(name, color)
     define_singleton_method :"#{name}" do |text = nil|
       @ansi_color = "\x1b[38;2;#{hex_to_ansi color}m"
