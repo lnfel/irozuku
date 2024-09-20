@@ -5,8 +5,9 @@ RSpec.describe Irozuku do
     expect(Irozuku::VERSION).not_to be nil
   end
 
-  it "writes a string" do
+  it "writes a plain string" do
     text = "Irozuku"
     expect(Irozuku.write(text)).to eq(text)
   end
+
 end
