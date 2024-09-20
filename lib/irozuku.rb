@@ -49,6 +49,23 @@ module Irozuku
   Constants::TEXT_DECORATION_MAP.each do |key, value|
     generate_text_decoration_method key, value
   end
+  def self.hex_to_ansi(hex_string)
+    # hex_string = hex_string.sub(/^#?/, "")
+    # if hex_string.match?(/^#?[a-f0-9]{3}$/i)
+    #   hex_string = hex_string.chars.map { |a|
+    #     a * 2
+    #   }.join("")
+    # end
+
+    parts = hex_string.match(/#?(?<r>..)(?<g>..)(?<b>..)/)
+    t = []
+
+    %w[r g b].each do |e|
+      t << parts[e].hex
+    end
+
+    t.join(";")
+  end
 
   def self.write(string)
     output = "#{@ansi_color}#{@ansi_background_color}#{@ansi_text_decoration.join("")}#{string}#{"\x1b[0m" if [@ansi_color, @ansi_background_color, @ansi_text_decoration[0]].compact.length > 0}"
