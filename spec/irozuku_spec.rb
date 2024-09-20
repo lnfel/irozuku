@@ -50,6 +50,8 @@ RSpec.describe Irozuku do
 
   context "when validating color strings" do
     it "raises an error for invalid hex color string" do
+      invalid_hex_color = "#IROZUKU"
+      expect { Irozuku.color(invalid_hex_color).write("YATTA!!!") }.to raise_error(Irozuku::Validation::ValidationError, "Invalid hex color string: #{invalid_hex_color}")
     end
   end
 end

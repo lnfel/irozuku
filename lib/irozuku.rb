@@ -2,6 +2,7 @@
 
 require_relative "irozuku/version"
 require_relative "irozuku/constants"
+require_relative "irozuku/validation"
 
 module Irozuku
   attr_accessor :ansi_color, :ansi_background_color, :ansi_text_decoration, :text
@@ -50,6 +51,7 @@ module Irozuku
     generate_text_decoration_method key, value
   end
   def self.hex_to_ansi(hex_string)
+    Validation.hex_color?(hex_string)
     # hex_string = hex_string.sub(/^#?/, "")
     # if hex_string.match?(/^#?[a-f0-9]{3}$/i)
     #   hex_string = hex_string.chars.map { |a|
