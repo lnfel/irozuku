@@ -1,5 +1,3 @@
-require "irozuku"
-
 module Irozuku
   module Constants
     ANSI_ESC_SEQUENCE = "\x1b"

@@ -1,5 +1,3 @@
-require "irozuku"
-
 module Irozuku
   module Validation
     class ValidationError < StandardError
