@@ -5,6 +5,7 @@ require "rspec/core/rake_task"
 require "standard/rake"
 require "cucumber"
 require "cucumber/rake/task"
+require "steep/rake_task"
 
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = [
@@ -31,4 +32,12 @@ Cucumber::Rake::Task.new(:features) do |t|
   ] # Any valid command line option can go here.
 end
 
-task default: %i[spec standard features]
+# Steep available commands
+# init check stats binstub project watch
+# See steep/cli for command options
+Steep::RakeTask.new do |t|
+  t.check.severity_level = :error
+  t.watch.verbose
+end
+
+task default: %i[spec standard features steep]
