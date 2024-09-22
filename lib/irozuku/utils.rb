@@ -1,4 +1,4 @@
-require "irozuku"
+require_relative "../irozuku"
 
 module Irozuku
   module Utils

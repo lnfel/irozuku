@@ -1,5 +1,5 @@
 require "thor"
-require "irozuku"
+require_relative "../irozuku"
 
 module Irozuku
   class CLI < Thor
