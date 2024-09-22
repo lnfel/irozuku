@@ -8,6 +8,7 @@ module Irozuku
 
     ##
     # Validate color name existence
+    # Returns color hex_string if found
     def self.valid_color?(color_string)
       Constants::HEX_COLOR_MAP.fetch(color_string)
     rescue KeyError
