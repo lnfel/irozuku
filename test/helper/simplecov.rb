@@ -9,7 +9,7 @@ module SimpleCov
     class ColoredSummary
       def format(result)
         require "irozuku"
-        message = "#{Irozuku.bold.yellow("Coverage Report for #{result.command_name}")}"
+        message = Irozuku.bold.yellow("Coverage Report for #{result.command_name}")
         message += "\n#{Irozuku.bold.blue("Output path:")} #{SimpleCov.coverage_path}"
         message += "\n#{Irozuku.bold.blue("Line Coverage:")} #{coverage_color(result.covered_percent.round(2))} (#{result.covered_lines} / #{result.total_lines})"
         message += "\n#{Irozuku.bold.blue("Branch Coverage:")} #{result.coverage_statistics[:branch].percent.round(2)}% (#{result.covered_branches} / #{result.total_branches})" if SimpleCov.branch_coverage?
