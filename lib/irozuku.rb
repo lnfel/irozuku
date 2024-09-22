@@ -88,8 +88,7 @@ module Irozuku
   end
 
   def self.get_color(name)
-    Validation.valid_color?(name)
-    Constants::HEX_COLOR_MAP[name.downcase]
+    Validation.valid_color?(name.downcase)
   end
 
   def self.write(string)
