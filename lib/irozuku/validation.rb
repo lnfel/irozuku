@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Irozuku
   module Validation
     class ValidationError < StandardError

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Irozuku
   module Constants
     ANSI_ESC_SEQUENCE = "\x1b"
