@@ -20,7 +20,8 @@ module Irozuku
       # IO object here.
       previous_stdout, $stdout = $stdout, StringIO.new
       yield
-      $stdout.string
+      # https://github.com/soutaro/steep/issues/549
+      $stdout.string # steep:ignore NoMethod
     ensure
       # Restore the previous value of stdout (typically equal to STDOUT)
       $stdout = previous_stdout

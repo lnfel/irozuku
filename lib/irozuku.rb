@@ -81,7 +81,7 @@ module Irozuku
     t = []
 
     %w[r g b].each do |e|
-      t << parts[e].hex
+      t << parts[e].hex # steep:ignore NoMethod
     end
 
     t.join(";")
