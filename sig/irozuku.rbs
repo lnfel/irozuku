@@ -1,4 +1,77 @@
 module Irozuku
+  attr_accessor ansi_color (): String?
+  attr_accessor ansi_background_color (): String?
+  attr_accessor ansi_text_decoration (): Array[String?]
+  attr_accessor text (): String?
+
+  def self.amber: (?String text) -> (String | self)
+  def self.bg_amber: (?String text) -> (String | self)
+  def self.bg_black: (?String text) -> (String | self)
+  def self.bg_blue: (?String text) -> (String | self)
+  def self.bg_cyan: (?String text) -> (String | self)
+  def self.bg_emerald: (?String text) -> (String | self)
+  def self.bg_fuschia: (?String text) -> (String | self)
+  def self.bg_gray: (?String text) -> (String | self)
+  def self.bg_green: (?String text) -> (String | self)
+  def self.bg_indigo: (?String text) -> (String | self)
+  def self.bg_lime: (?String text) -> (String | self)
+  def self.bg_orange: (?String text) -> (String | self)
+  def self.bg_pink: (?String text) -> (String | self)
+  def self.bg_purple: (?String text) -> (String | self)
+  def self.bg_red: (?String text) -> (String | self)
+  def self.bg_rose: (?String text) -> (String | self)
+  def self.bg_sky: (?String text) -> (String | self)
+  def self.bg_stone: (?String text) -> (String | self)
+  def self.bg_teal: (?String text) -> (String | self)
+  def self.bg_violet: (?String text) -> (String | self)
+  def self.bg_white: (?String text) -> (String | self)
+  def self.bg_yellow: (?String text) -> (String | self)
+  def self.black: (?String text) -> (String | self)
+  def self.blink: (?String text) -> (String | self)
+  def self.blue: (?String text) -> (String | self)
+  def self.bold: (?String text) -> (String | self)
+  def self.cleanup: () -> void
+  def self.color: (String color_string) -> self
+  def self.cyan: (?String text) -> (String | self)
+  def self.dim: (?String text) -> (String | self)
+  def self.double_underline: (?String text) -> (String | self)
+  def self.emerald: (?String text) -> (String | self)
+  def self.fuschia: (?String text) -> (String | self)
+  def self.generate_bg_color_method: (String name, String color) -> Symbol
+  def self.generate_text_color_method: (String name, String color) -> Symbol
+  def self.generate_text_decoration_method: (String name, String ansi_value) -> Symbol
+  def self.get_color: (String name) -> String
+  def self.gray: (?String text) -> (String | self)
+  def self.green: (?String text) -> (String | self)
+  def self.hex_to_ansi: (String hex_string) -> String
+  def self.hidden: (?String text) -> (String | self)
+  def self.indigo: (?String text) -> (String | self)
+  def self.inverse: (?String text) -> (String | self)
+  def self.italic: (?String text) -> (String | self)
+  def self.lime: (?String text) -> (String | self)
+  def self.orange: (?String text) -> (String | self)
+  def self.overline: (?String text) -> (String | self)
+  def self.pink: (?String text) -> (String | self)
+  def self.purple: (?String text) -> (String | self)
+  def self.red: (?String text) -> (String | self)
+  def self.rose: (?String text) -> (String | self)
+  def self.sky: (?String text) -> (String | self)
+  def self.stone: (?String text) -> (String | self)
+  def self.strikethrough: (?String text) -> (String | self)
+  def self.teal: (?String text) -> (String | self)
+  def self.underline: (?String text) -> (String | self)
+  def self.violet: (?String text) -> (String | self)
+  def self.white: (?String text) -> (String | self)
+  def self.write: (String string) -> String
+  def self.yellow: (?String text) -> (String | self)
+
+public
+
   VERSION: String
-  # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+  class IrozukuError < ::StandardError
+    private
+
+    def initialize: (String msg) -> void
+  end
 end

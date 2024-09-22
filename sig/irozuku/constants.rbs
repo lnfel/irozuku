@@ -1,0 +1,13 @@
+module Irozuku
+  module Constants
+    ANSI_ESC_SEQUENCE: ::String
+
+    ANSI_RESET_SEQUENCE: ::String
+
+    EIGHT_COLOR_MAP: ::Hash[String, String]
+
+    HEX_COLOR_MAP: ::Hash[String, String]
+
+    TEXT_DECORATION_MAP: ::Hash[String, String]
+  end
+end

@@ -1,0 +1,13 @@
+module Irozuku
+  module Validation
+    def self.hex_color?: (String hex_string) -> void
+
+    def self.valid_color?: (String color_string) -> String
+
+    class ValidationError < ::StandardError
+      private
+
+      def initialize: (String msg) -> void
+    end
+  end
+end

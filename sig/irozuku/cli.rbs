@@ -1,0 +1,7 @@
+module Irozuku
+  class CLI < ::Thor
+    public
+
+    def write: (String string) -> void
+  end
+end

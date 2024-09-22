@@ -1,0 +1,5 @@
+module Irozuku
+  module Utils
+    def self.silence_stdout: () { () -> String } -> void
+  end
+end
