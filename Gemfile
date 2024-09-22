@@ -21,7 +21,5 @@ group :test do
 end
 
 group :development, :test do
-  gem "rspec", "~> 3.0"
-  gem "cucumber", "~> 9.2"
-  gem "aruba", "~> 2.2"
+  gem "steep", "~> 1.7", require: false
 end
