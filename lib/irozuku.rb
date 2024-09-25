@@ -4,9 +4,11 @@ require_relative "irozuku/version"
 require_relative "irozuku/constants"
 require_relative "irozuku/validation"
 
-module Irozuku
-  attr_accessor :ansi_color, :ansi_background_color, :ansi_text_decoration, :text
-  @ansi_text_decoration = [] # steep:ignore
+module Irozuku  
+  @ansi_color = nil
+  @ansi_background_color = nil
+  @text = nil
+  @ansi_text_decoration = []
 
   # https://rollbar.com/guides/ruby/how-to-raise-exceptions-in-ruby/
   # https://www.honeybadger.io/blog/ruby-exception-vs-standarderror-whats-the-difference/
@@ -18,7 +20,7 @@ module Irozuku
 
   def self.generate_text_color_method(name, color)
     define_singleton_method :"#{name}" do |text = nil|
-      @ansi_color = "\x1b[38;2;#{hex_to_ansi color}m" # steep:ignore
+      @ansi_color = "\x1b[38;2;#{hex_to_ansi color}m"
       if text
         write(text)
       else
@@ -29,7 +31,7 @@ module Irozuku
 
   def self.generate_bg_color_method(name, color)
     define_singleton_method :"#{name}" do |text = nil|
-      @ansi_background_color = "\x1b[48;2;#{hex_to_ansi color}m" # steep:ignore
+      @ansi_background_color = "\x1b[48;2;#{hex_to_ansi color}m"
       if text
         write(text)
       else
@@ -40,7 +42,7 @@ module Irozuku
 
   def self.generate_text_decoration_method(name, ansi_value)
     define_singleton_method :"#{name}" do |text = nil|
-      @ansi_text_decoration.push("\x1b[#{ansi_value}m") # steep:ignore
+      @ansi_text_decoration.push("\x1b[#{ansi_value}m")
 
       if text
         write(text)
@@ -64,7 +66,7 @@ module Irozuku
       hex_string = get_color(color_string)
     end
     color_string = hex_string if hex_string
-    @ansi_color = "\x1b[38;2;#{hex_to_ansi color_string}m" # steep:ignore
+    @ansi_color = "\x1b[38;2;#{hex_to_ansi color_string}m"
     self
   end
 
@@ -98,11 +100,9 @@ module Irozuku
   end
 
   def self.cleanup
-    # steep:ignore:start
     @ansi_color = nil
     @ansi_background_color = nil
     @ansi_text_decoration = []
     @text = nil
-    # steep:ignore:end
   end
 end

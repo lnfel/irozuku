@@ -1,8 +1,8 @@
 module Irozuku
-  attr_accessor ansi_color (): String?
-  attr_accessor ansi_background_color (): String?
-  attr_accessor ansi_text_decoration (): Array[String?]
-  attr_accessor text (): String?
+  self.@ansi_color: (String | nil)
+  self.@ansi_background_color: (String | nil)
+  self.@text: (String | nil)
+  self.@ansi_text_decoration: Array[String?]
 
   def self.amber: (?String text) -> (String | self)
   def self.bg_amber: (?String text) -> (String | self)
