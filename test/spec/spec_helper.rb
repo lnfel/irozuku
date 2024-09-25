@@ -7,6 +7,7 @@ SimpleCov::Utils.clear_coverage_output
 SimpleCov.start
 
 require "irozuku"
+require "irozuku/utils"
 
 RSpec.configure do |config|
   # Exit test early as soon as failing test is encountered

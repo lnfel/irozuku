@@ -82,3 +82,21 @@ RSpec.describe Irozuku do
     end
   end
 end
+
+RSpec.describe Irozuku::IrozukuError do
+  it "extends from StandardError" do
+    a = Irozuku::IrozukuError.new("Something happened")
+    expect(a.class.superclass).to eq(StandardError)
+  end
+end
+
+RSpec.describe Irozuku::Utils do
+  it "can silence $stdout" do
+    message = "Annoying message!!!"
+    captured_output = Irozuku::Utils.silence_stdout do
+      print message
+    end
+
+    expect(captured_output).to eq(message)
+  end
+end
