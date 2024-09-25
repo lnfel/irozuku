@@ -48,6 +48,28 @@ RSpec.describe Irozuku do
     end
   end
 
+  context "when chaining methods" do
+    Irozuku::Constants::TEXT_DECORATION_MAP.each do |key, value|
+      it "#{key} method can be chained" do
+        expect(Irozuku.public_send(key)).to eq(Irozuku)
+      end
+    end
+
+    Irozuku::Constants::HEX_COLOR_MAP.each do |key, value|
+      it "#{key} method can be chained" do
+        expect(Irozuku.public_send(key)).to eq(Irozuku)
+      end
+
+      it "bg_#{key} method can be chained" do
+        expect(Irozuku.public_send(:"bg_#{key}")).to eq(Irozuku)
+      end
+    end
+
+    it "color method can be chained" do
+      expect(Irozuku.color("red")).to eq(Irozuku)
+    end
+  end
+
   context "when validating color strings" do
     it "raises an error for invalid hex color string" do
       invalid_hex_color = "#IROZUKU"
