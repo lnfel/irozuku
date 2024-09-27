@@ -8,6 +8,7 @@ SimpleCov.start
 
 require "irozuku"
 require "irozuku/utils"
+require "irozuku/configuration"
 
 RSpec.configure do |config|
   # Exit test early as soon as failing test is encountered
