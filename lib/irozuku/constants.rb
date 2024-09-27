@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Irozuku
+  # https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113fd25b
   module Constants
     ANSI_ESC_SEQUENCE = "\x1b"
 
@@ -34,16 +35,46 @@ module Irozuku
     # https://gist.github.com/abhishekkr/3610174
     # Some terminals may not support some of the graphic mode sequences listed
     TEXT_DECORATION_MAP = {
-      "bold" => "1",
-      "dim" => "2",
-      "italic" => "3",
-      "underline" => "4",
-      "blink" => "5", # most consider this as bad for accessibility, hence why it is not supported most of the time
-      "inverse" => "7",
-      "hidden" => "8",
-      "strikethrough" => "9",
-      "double_underline" => "21", # double_underline sequence is a non-specified sequence for double underline mode and only work in some terminals and is reset with [24m
-      "overline" => "53" # not defined in XTerm Control Sequences https://invisible-island.net/xterm/ctlseqs/ctlseqs.html, not a standard in most terminal implementations
+      "bold" => {
+        "code" => "1",
+        "reset" => "22"
+      },
+      "dim" => {
+        "code" => "2",
+        "reset" => "22"
+      },
+      "italic" => {
+        "code" => "3",
+        "reset" => "23"
+      },
+      "underline" => {
+        "code" => "4",
+        "reset" => "24"
+      },
+      "blink" => {
+        "code" => "5",
+        "reset" => "25"
+      }, # most consider this as bad for accessibility, hence why it is not supported most of the time
+      "inverse" => {
+        "code" => "7",
+        "reset" => "27"
+      },
+      "hidden" => {
+        "code" => "8",
+        "reset" => "28"
+      },
+      "strikethrough" => {
+        "code" => "9",
+        "reset" => "29"
+      },
+      "double_underline" => {
+        "code" => "21",
+        "reset" => "24"
+      }, # double_underline sequence is a non-specified sequence for double underline mode and only work in some terminals and is reset with [24m
+      "overline" => {
+        "code" => "53",
+        "reset" => "55" # Reset is 55 as defined in microsoft vscode implementation https://github.com/microsoft/vscode/issues/181242#issuecomment-1564668078
+      } # overline is not defined in XTerm Control Sequences https://invisible-island.net/xterm/ctlseqs/ctlseqs.html, not a standard in most terminal implementations
     }
 
     EIGHT_COLOR_MAP = {

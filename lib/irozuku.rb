@@ -42,7 +42,10 @@ module Irozuku
 
   def self.generate_text_decoration_method(name, ansi_value)
     define_singleton_method :"#{name}" do |text = nil|
-      @ansi_text_decoration.push("\x1b[#{ansi_value}m")
+      @ansi_text_decoration.push({
+        "code" => "\x1b[#{ansi_value["code"]}m",
+        "reset" => "\x1b[#{ansi_value["reset"]}m"
+      })
 
       if text
         write(text)
@@ -93,8 +96,11 @@ module Irozuku
     Validation.valid_color?(name.downcase)
   end
 
+  # ANSI code is written in sequence as:
+  # color; bg_color; text_decoration; <text_to_decorate> text_decoration_reset; global_reset;
+  # global_reset at the end is optional and is only added when color and bg_color are present
   def self.write(string)
-    output = "#{@ansi_color}#{@ansi_background_color}#{@ansi_text_decoration.join("")}#{string}#{"\x1b[0m" if [@ansi_color, @ansi_background_color, @ansi_text_decoration[0]].compact.length > 0}"
+    output = "#{@ansi_color}#{@ansi_background_color}#{@ansi_text_decoration.map{ |x| x["code"] if x }.join("")}#{string}#{@ansi_text_decoration.reverse.map{ |x| x["reset"] if x }.join("")}#{"\x1b[0m" if [@ansi_color, @ansi_background_color].compact.length > 0 and self.configuration.reset_sequence == "enabled" }"
     cleanup
     output
   end
