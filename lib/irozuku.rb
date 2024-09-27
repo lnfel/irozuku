@@ -3,8 +3,9 @@
 require_relative "irozuku/version"
 require_relative "irozuku/constants"
 require_relative "irozuku/validation"
+require_relative "irozuku/configuration"
 
-module Irozuku  
+module Irozuku
   @ansi_color = nil
   @ansi_background_color = nil
   @text = nil
@@ -18,6 +19,15 @@ module Irozuku
     end
   end
 
+  def self.configuration
+    @configuration ||= Irozuku::Configuration.new
+  end
+
+  def self.configure
+    yield configuration if block_given?
+  end
+
+  # https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113fd25b#rgb-colors
   def self.generate_text_color_method(name, color)
     define_singleton_method :"#{name}" do |text = nil|
       @ansi_color = "\x1b[38;2;#{hex_to_ansi color}m"
@@ -29,6 +39,7 @@ module Irozuku
     end
   end
 
+  # https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113fd25b#rgb-colors
   def self.generate_bg_color_method(name, color)
     define_singleton_method :"#{name}" do |text = nil|
       @ansi_background_color = "\x1b[48;2;#{hex_to_ansi color}m"
@@ -55,7 +66,7 @@ module Irozuku
     end
   end
 
-  Constants::HEX_COLOR_MAP.each do |key, value|
+  self.configuration.colors.each do |key, value|
     generate_text_color_method key, value
     generate_bg_color_method "bg_#{key}", value
   end

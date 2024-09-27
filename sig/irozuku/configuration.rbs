@@ -1,0 +1,15 @@
+module Irozuku
+  class Configuration
+    public
+
+    @colors: Hash[String, String]
+
+    def colors: () -> Hash[String, String]
+
+    def colors=: (Hash[String, String] colors) -> void
+
+    private
+
+    def initialize: () -> void
+  end
+end

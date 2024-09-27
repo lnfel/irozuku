@@ -3,6 +3,11 @@ module Irozuku
   self.@ansi_background_color: (String | nil)
   self.@text: (String | nil)
   self.@ansi_text_decoration: Array[{ "code" => String, "reset" => String }?]
+  self.@configuration: Irozuku::Configuration
+  def self.configure: () ?{ (Irozuku::Configuration) -> boolish } -> void
+                    | () -> nil
+
+  def self.configuration: () -> Irozuku::Configuration
 
   def self.amber: (?String text) -> (String | self)
   def self.bg_amber: (?String text) -> (String | self)
