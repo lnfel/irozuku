@@ -11,6 +11,8 @@ RSpec.shared_context "configuration" do
   after do
     Irozuku.configure do |config|
       config.colors = Irozuku::Constants::HEX_COLOR_MAP
+      config.ansi_sequence = "enabled"
+      config.reset_sequence = "enabled"
     end
   end
 end
@@ -24,5 +26,27 @@ RSpec.describe Irozuku::Configuration do
 
   it "can extend built-in colors" do
     expect(Irozuku::Validation.valid_color?("crimson")).to eq(crimson)
+  end
+
+  it "enables ansi_sequence by default" do
+    expect(Irozuku.configuration.ansi_sequence).to eq("enabled")
+  end
+
+  it "can disable ansi_sequence" do
+    Irozuku.configure do |config|
+      config.ansi_sequence = "disabled"
+    end
+    expect(Irozuku.configuration.ansi_sequence).to eq("disabled")
+  end
+
+  it "enables reset_sequence by default" do
+    expect(Irozuku.configuration.reset_sequence).to eq("enabled")
+  end
+
+  it "can disable reset_sequence" do
+    Irozuku.configure do |config|
+      config.reset_sequence = "disabled"
+    end
+    expect(Irozuku.configuration.reset_sequence).to eq("disabled")
   end
 end
