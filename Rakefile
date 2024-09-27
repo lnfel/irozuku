@@ -10,7 +10,7 @@ require "steep/rake_task"
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = [
     "--default-path test/spec",
-    "--pattern test/spec/**/*_spec.rb",
+    "--pattern test/spec/*_spec.rb,test/spec/**/*_spec.rb",
     "--format documentation",
     "--color",
     "--require spec_helper"
