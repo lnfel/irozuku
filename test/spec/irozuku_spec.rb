@@ -81,6 +81,12 @@ RSpec.describe Irozuku do
       expect { Irozuku.color(invalid_color_name).write("RED") }.to raise_error(Irozuku::Validation::ValidationError, "Color #{invalid_color_name} is not defined.")
     end
   end
+
+  context "when configuring Irozuku" do
+    it "configure method returns nil when no block is given" do
+      expect(Irozuku.configure).to eq(nil)
+    end
+  end
 end
 
 RSpec.describe Irozuku::IrozukuError do
