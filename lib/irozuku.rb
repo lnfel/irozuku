@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# rbs_inline: enabled
 
 require_relative "irozuku/version"
 require_relative "irozuku/constants"
@@ -94,7 +95,7 @@ module Irozuku
     # end
 
     parts = hex_string.match(/#?(?<r>..)(?<g>..)(?<b>..)/)
-    t = []
+    t = [] #: [String?]
 
     %w[r g b].each do |e|
       t << parts[e].hex # steep:ignore NoMethod

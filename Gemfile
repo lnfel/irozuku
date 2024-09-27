@@ -25,4 +25,5 @@ group :development, :test do
   gem "cucumber", "~> 9.2", require: false
   gem "aruba", "~> 2.2", require: false
   gem "steep", "~> 1.7", require: false
+  gem "rbs-inline", "~> 0.8", require: false
 end
