@@ -49,4 +49,11 @@ RSpec.describe Irozuku::Configuration do
     end
     expect(Irozuku.configuration.reset_sequence).to eq("disabled")
   end
+
+  it "colors can accept hash rocket object" do
+    Irozuku.configure do |config|
+      config.colors = { "rose" => white, "crimson" => crimson }
+    end
+    expect(Irozuku::Validation.valid_color?("crimson")).to eq(crimson)
+  end
 end

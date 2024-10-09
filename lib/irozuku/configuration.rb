@@ -12,7 +12,7 @@ module Irozuku
     end
 
     def colors=(colors)
-      @colors = Constants::HEX_COLOR_MAP.merge(colors)
+      @colors = Constants::HEX_COLOR_MAP.merge(colors.transform_keys(&:to_sym))
 
       Irozuku.configuration.colors.each do |key, value|
         Irozuku.generate_text_color_method key, value
