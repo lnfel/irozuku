@@ -2,7 +2,7 @@ module Irozuku
   self.@ansi_color: (String | nil)
   self.@ansi_background_color: (String | nil)
   self.@text: (String | nil)
-  self.@ansi_text_decoration: Array[{ "code" => String, "reset" => String }?]
+  self.@ansi_text_decoration: Array[{ code: String, reset: String }?]
   self.@configuration: Irozuku::Configuration
   def self.configure: () ?{ (Irozuku::Configuration) -> boolish } -> void
                     | () -> nil
@@ -43,8 +43,8 @@ module Irozuku
   def self.emerald: (?String text) -> (String | self)
   def self.fuschia: (?String text) -> (String | self)
   def self.generate_bg_color_method: (String name, String color) -> Symbol
-  def self.generate_text_color_method: (String name, String color) -> Symbol
-  def self.generate_text_decoration_method: (String name, { "code" => String, "reset" => String } ansi_value) -> Symbol
+  def self.generate_text_color_method: (Symbol name, String color) -> Symbol
+  def self.generate_text_decoration_method: (Symbol name, { code: String, reset: String } ansi_value) -> Symbol
   def self.get_color: (String name) -> String
   def self.gray: (?String text) -> (String | self)
   def self.green: (?String text) -> (String | self)

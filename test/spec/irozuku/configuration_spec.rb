@@ -4,7 +4,7 @@ RSpec.shared_context "configuration" do
 
   before do
     Irozuku.configure do |config|
-      config.colors = { "rose" => white, "crimson" => crimson }
+      config.colors = { rose: white, crimson: crimson }
     end
   end
 

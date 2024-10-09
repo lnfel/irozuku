@@ -4,10 +4,10 @@ module Irozuku
 
     ANSI_RESET_SEQUENCE: String
 
-    EIGHT_COLOR_MAP: Hash[String, String]
+    EIGHT_COLOR_MAP: Hash[Symbol, String]
 
-    HEX_COLOR_MAP: Hash[String, String]
+    HEX_COLOR_MAP: Hash[Symbol, String]
 
-    TEXT_DECORATION_MAP: Hash[String, { "code" => String, "reset" => String }]
+    TEXT_DECORATION_MAP: Hash[Symbol, { code: String, reset: String }]
   end
 end

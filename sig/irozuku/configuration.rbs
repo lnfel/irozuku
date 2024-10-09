@@ -2,15 +2,15 @@ module Irozuku
   class Configuration
     public
 
-    @colors: Hash[String, String]
+    @colors: Hash[Symbol, String]
     @reset_sequence: ("enabled" | "disabled")
     @ansi_sequence: ("enabled" | "disabled")
 
-    def colors: () -> Hash[String, String]
+    def colors: () -> Hash[Symbol, String]
     def reset_sequence: () -> ("enabled" | "disabled")
     def ansi_sequence: () -> ("enabled" | "disabled")
 
-    def colors=: (Hash[String, String] colors) -> void
+    def colors=: (Hash[Symbol, String] colors) -> void
     def reset_sequence=: (("enabled" | "disabled")) -> void
     def ansi_sequence=: (("enabled" | "disabled")) -> void
 
