@@ -59,6 +59,7 @@ h6 span {
   inset: 0;
   line-height: 0;
   font-size: 1em;
+  pointer-events: none;
 }
 
 h1 span > a,
@@ -98,6 +99,7 @@ h6 span > a:first-child::after {
     justify-content: center;
     line-height: normal;
     visibility: visible;
+    pointer-events: all;
 }
 
 h1:hover span,
