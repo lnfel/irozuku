@@ -14,6 +14,7 @@ gem "rake", "~> 13.0", require: false
 
 group :development do
   gem "standard", "~> 1.3", require: false
+  gem "rdoc", "~> 6.12", require: false
 end
 
 group :test do
