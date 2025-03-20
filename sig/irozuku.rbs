@@ -4,6 +4,7 @@ module Irozuku
   self.@text: (String | nil)
   self.@ansi_text_decoration: Array[{ code: String, reset: String }?]
   self.@configuration: Irozuku::Configuration
+  self.@sequences: Array[String]
   def self.configure: () ?{ (Irozuku::Configuration) -> boolish } -> void
                     | () -> nil
 
