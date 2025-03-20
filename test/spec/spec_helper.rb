@@ -27,7 +27,7 @@ RSpec.configure do |config|
   # previous test's instance variables to affect next usage of Irozuku.
   # i.e. After running the tests, using Irozuku on SimpleCov.at_exit hook receives the last context's Irozuku instance variable,
   # making the Coverage Report for RSpec title background color yellow!
-  config.after(:context) do
+  config.before(:example) do
     Irozuku.cleanup
   end
 end
