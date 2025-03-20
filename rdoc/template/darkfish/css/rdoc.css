@@ -716,3 +716,41 @@ main .attribute-access-type {
     float: none;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: white;
+    --link-color: white;
+    --background-color: #0f172a;
+    --highlight-color: #fb7185;
+    --code-block-background-color: #1a1b26;
+    --source-code-toggle-color: #fb7185;
+    --secondary-highlight-color: #fb7185;
+  }
+
+  pre {
+    color: #9ABDF5;
+  }
+
+  /**
+   * Tokyo Night theme
+   */
+  .ruby-constant   { color: #FF9E64; }
+  .ruby-keyword    { color: #BB9AF7; }
+  .ruby-ivar       { color: #C0CAF5; }
+  .ruby-operator   { color: #89DDFF; }
+  .ruby-identifier { color: #7AA2F7; }
+  .ruby-node       { color: #FF9E64; }
+  .ruby-comment    { color: #51597D; font-style: italic; }
+  .ruby-regexp     { color: #8F3F71; }
+  .ruby-value      { color: #7AA2F7; }
+  .ruby-string     { color: #9ECE6A; }
+
+  #search-field {
+    background-color: var(--code-block-background-color);
+  }
+
+  #search-field-wrapper::before {
+    opacity: 1;
+  }
+}
