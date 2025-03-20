@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # rbs_inline: enabled
 
 require_relative "irozuku/version"
@@ -68,7 +69,7 @@ module Irozuku
     end
   end
 
-  self.configuration.colors.each do |key, value|
+  Irozuku.configuration.colors.each do |key, value|
     generate_text_color_method key, value
     generate_bg_color_method "bg_#{key}", value
   end
@@ -96,7 +97,9 @@ module Irozuku
     # end
 
     parts = hex_string.match(/#?(?<r>..)(?<g>..)(?<b>..)/)
+    # standard:disable Layout/LeadingCommentSpace
     t = [] #: [String?]
+    # standard:enable Layout/LeadingCommentSpace
 
     %w[r g b].each do |e|
       t << parts[e].hex # steep:ignore NoMethod

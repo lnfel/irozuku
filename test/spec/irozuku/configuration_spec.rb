@@ -4,7 +4,7 @@ RSpec.shared_context "configuration" do
 
   before do
     Irozuku.configure do |config|
-      config.colors = { rose: white, crimson: crimson }
+      config.colors = {rose: white, crimson: crimson}
     end
   end
 
@@ -52,7 +52,7 @@ RSpec.describe Irozuku::Configuration do
 
   it "colors can accept hash rocket object" do
     Irozuku.configure do |config|
-      config.colors = { "rose" => white, "crimson" => crimson }
+      config.colors = {"rose" => white, "crimson" => crimson}
     end
     expect(Irozuku::Validation.valid_color?("crimson")).to eq(crimson)
   end
