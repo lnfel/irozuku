@@ -1,0 +1,28 @@
+---
+encoding: UTF-8
+static_path: ["/docs"]
+rdoc_include: []
+page_dir:
+apply_default_exclude: true
+autolink_excluded_words: []
+charset: UTF-8
+embed_mixins: false
+exclude: ["bin", "config", "exe", "darkfish", "pkg", "sig", "tmp", "test", "CHANGELOG", "CODE_OF_CONDUCT", "Gemfile", "Gemfile.lock", "Rakefile", "Steepfile", "coverage", "rdoc/template", "rdoc/README.md"]
+hyperlink_all: false
+line_numbers: false
+locale_dir: locale
+locale_name:
+main_page: README.md
+markup: markdown
+op_dir: site/docs # output directory
+output_decoration: true
+show_hash: true
+skip_tests: true
+tab_width: 8
+template_stylesheets: []
+template: darkfish
+title: Styled terminal string in ruby | Irozuku
+visibility: :protected
+warn_missing_rdoc_ref: true
+webcvs: https://lnfel.github.io/irozuku
+debug: true
