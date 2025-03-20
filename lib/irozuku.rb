@@ -11,6 +11,7 @@ module Irozuku
   @ansi_background_color = nil
   @text = nil
   @ansi_text_decoration = []
+  @sequences = []
 
   # https://rollbar.com/guides/ruby/how-to-raise-exceptions-in-ruby/
   # https://www.honeybadger.io/blog/ruby-exception-vs-standarderror-whats-the-difference/
@@ -112,7 +113,16 @@ module Irozuku
   # color; bg_color; text_decoration; <text_to_decorate> text_decoration_reset; global_reset;
   # global_reset at the end is optional and is only added when color and bg_color are present
   def self.write(string)
-    output = self.configuration.ansi_sequence == "enabled" ? "#{@ansi_color}#{@ansi_background_color}#{@ansi_text_decoration.map{ |x| x[:code] if x }.join("")}#{string}#{@ansi_text_decoration.reverse.map{ |x| x[:reset] if x }.join("")}#{"\x1b[0m" if [@ansi_color, @ansi_background_color].compact.length > 0 and self.configuration.reset_sequence == "enabled" }" : string
+    output = (configuration.ansi_sequence == "enabled") ? "#{@ansi_color}#{@ansi_background_color}#{@ansi_text_decoration.map { |x| x[:code] if x }.join("")}#{string}#{@ansi_text_decoration.reverse.map { |x| x[:reset] if x }.join("")}#{"\x1b[0m" if [@ansi_color, @ansi_background_color].compact.length > 0 && configuration.reset_sequence == "enabled"}" : string
+    if @sequences.length > 0
+      @sequences.each_with_index do |sequence, index|
+        inner_sequence = sequence if output.include?(sequence)
+        if inner_sequence
+          output = output.gsub(inner_sequence, inner_sequence.gsub("\x1b[0m", (@sequences.length - 1 == index) ? "#{@ansi_color}#{@ansi_background_color}#{@ansi_text_decoration.map { |x| x[:code] if x }.join("")}" : ""))
+        end
+      end
+    end
+    @sequences.push(output)
     cleanup
     output
   end
