@@ -82,6 +82,14 @@ RSpec.describe Irozuku do
     end
   end
 
+  context "when nesting styles" do
+    it "can nest style using #{Irozuku.red("string #{Irozuku.underline.blue("interpolation")}.")}" do
+      # Output should be red "Hello" followed by blue underlined "World" then resumes to red "!"
+      expected = "\e[38;2;239;68;68mHello \e[38;2;59;130;246m\e[4mWorld\e[24m\e[38;2;239;68;68m!\e[0m"
+      expect { print Irozuku.red("Hello #{Irozuku.underline.blue("World")}!") }.to output(expected).to_stdout
+    end
+  end
+
   context "when configuring Irozuku" do
     it "configure method returns nil when no block is given" do
       expect(Irozuku.configure).to eq(nil)
