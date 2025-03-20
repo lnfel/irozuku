@@ -1,13 +1,25 @@
 # frozen_string_literal: true
 
 module Irozuku
-  # https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113fd25b
+  ##
+  # Constants module holds definitions for reusable ANSI sequences, extendable built-in color values and text decoration ANSI code values together with their corresponding reset sequence number.
+  #
+  # See [ANSI Escape Sequences gist by ConnerWill](https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113fd25b) and [Sample ruby implementation by abhishekkr](https://gist.github.com/abhishekkr/3610174).
   module Constants
+    ##
+    # The escape character used to start ANSI escape sequences.
+    # Can be represented as `\x1b`, `\e`, or `\033` followed by a bracket `[`.
+    # Not really used throughout the code but is here for documentation.
     ANSI_ESC_SEQUENCE = "\x1b"
 
+    ##
+    # The escape character used to reset ANSI escape sequences to default terminal style output.
+    # `0` specifies the "reset all" action, meaning it reverts to the default terminal settings.
+    # Not really used throughout the code but is here for documentation.
     ANSI_RESET_SEQUENCE = "\e[0m"
 
-    # Built-in colors
+    ##
+    # Built-in color values inspired by [Tailwindcss color palette](https://tailwindcss.com/docs/colors).
     HEX_COLOR_MAP = {
       black: "#000000",
       white: "#ffffff",
@@ -32,8 +44,9 @@ module Irozuku
       rose: "#f43f5e"
     }.freeze
 
-    # https://gist.github.com/abhishekkr/3610174
-    # Some terminals may not support some of the graphic mode sequences listed
+    ##
+    # This holds the ANSI code representation for text decorations such as bold, italic etc.
+    # Some terminals may not support some of the graphic mode sequences listed.
     TEXT_DECORATION_MAP = {
       bold: {
         code: "1",
@@ -77,6 +90,9 @@ module Irozuku
       } # overline is not defined in XTerm Control Sequences https://invisible-island.net/xterm/ctlseqs/ctlseqs.html, not a standard in most terminal implementations
     }
 
+    ##
+    # The default color codes used in legacy terminal settings.
+    # Not really used throughout the code but is here for documentation.
     EIGHT_COLOR_MAP = {
       black: "30",
       red: "31",
