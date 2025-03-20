@@ -6,6 +6,8 @@ require "standard/rake"
 require "cucumber"
 require "cucumber/rake/task"
 require "steep/rake_task"
+require "rdoc"
+require "rdoc/task"
 
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = [
@@ -40,4 +42,29 @@ Steep::RakeTask.new do |t|
   t.watch.verbose
 end
 
-task default: %i[spec standard features steep]
+# ENV['RDOC_USE_PRISM_PARSER'] = "true"
+
+# Todo: Generate Constants with default values documented
+# https://stackoverflow.com/questions/48603151/how-to-show-constant-value-in-rdoc
+# https://stackoverflow.com/questions/15760530/change-a-rdoc-template-for-generating-rails-app-documentation/15764193#15764193
+class RDoc::Options
+  def template_dir_for(template_path)
+    "#{File.dirname(__FILE__)}/rdoc/template/#{template_path}"
+  end
+end
+
+RDoc::Task.new({rdoc: "rdoc", clobber_rdoc: "rdoc:clean", rerdoc: "rdoc:force"}) do |rdoc|
+  rdoc.title = "Irozuku"
+  rdoc.markup = "markdown"
+  rdoc.template = "darkfish"
+  rdoc.generator = "darkfish"
+  rdoc.rdoc_dir = "site/docs"
+  rdoc.options = [
+    "--line_numbers",
+    "--copy-files=rdoc/assets"
+    # "-D",
+    # "--template=darkfish",
+  ]
+end
+
+task default: %i[spec standard features steep rdoc:force]
