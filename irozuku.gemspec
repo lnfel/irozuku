@@ -8,13 +8,13 @@ Gem::Specification.new do |spec|
   spec.authors = ["Dale Ryan Aldover"]
   spec.email = ["bk2o1.syndicates@gmail.com"]
 
-  spec.summary = "Elegant terminal styling for ruby."
+  spec.summary = "Terminal styling in ruby."
   # spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = "https://lnfel.github.io/irozuku/"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
+  # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/lnfel/irozuku/"
