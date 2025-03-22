@@ -8,6 +8,7 @@ require "cucumber/rake/task"
 require "steep/rake_task"
 require "rdoc"
 require "rdoc/task"
+require "rubygems/package_task"
 
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = [
@@ -66,5 +67,10 @@ RDoc::Task.new({rdoc: "rdoc", clobber_rdoc: "rdoc:clean", rerdoc: "rdoc:force"})
     # "--template=darkfish",
   ]
 end
+
+gemspec = Gem::Specification.new(File.open("#{File.dirname(__FILE__)}/irozuku.gemspec"))
+
+# rake build
+Gem::PackageTask.new(gemspec)
 
 task default: %i[spec standard features steep rdoc:force]
