@@ -4,7 +4,7 @@
     </a>
 </p>
 
-> Styled terminal string in ruby.
+> Elegant terminal styling in ruby.
 
 ## Motivation
 

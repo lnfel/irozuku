@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Dale Ryan Aldover"]
   spec.email = ["bk2o1.syndicates@gmail.com"]
 
-  spec.summary = "Terminal styling in ruby."
+  spec.summary = "Elegant terminal styling in ruby."
   # spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = "https://lnfel.github.io/irozuku/"
   spec.license = "MIT"
